@@ -14,8 +14,8 @@ const GraphicsDesignPage = () => {
         "Brand identity packages",
         "Logo variations & guidelines"
       ],
-      color: "text-blue-600",
-      bgColor: "bg-blue-50"
+      color: "text-blue-400 dark:text-blue-300",
+      bgColor: "bg-blue-50 dark:bg-gray-800"
     },
     {
       icon: Layout,
@@ -26,8 +26,8 @@ const GraphicsDesignPage = () => {
         "Web advertising designs",
         "Event promotional materials"
       ],
-      color: "text-purple-600",
-      bgColor: "bg-purple-50"
+      color: "text-purple-400 dark:text-purple-300",
+      bgColor: "bg-purple-50 dark:bg-gray-800"
     },
     {
       icon: Award,
@@ -38,8 +38,8 @@ const GraphicsDesignPage = () => {
         "Visual identity systems",
         "Brand collateral design"
       ],
-      color: "text-green-600",
-      bgColor: "bg-green-50"
+      color: "text-green-400 dark:text-green-300",
+      bgColor: "bg-green-50 dark:bg-gray-800"
     },
     {
       icon: Layers,
@@ -50,8 +50,8 @@ const GraphicsDesignPage = () => {
         "Product catalogs",
         "Digital marketing assets"
       ],
-      color: "text-indigo-600",
-      bgColor: "bg-indigo-50"
+      color: "text-indigo-400 dark:text-indigo-300",
+      bgColor: "bg-indigo-50 dark:bg-gray-800"
     }
   ];
 
@@ -117,30 +117,30 @@ const GraphicsDesignPage = () => {
       label: "Projects Delivered",
       value: "100+",
       icon: Brush,
-      color: "text-blue-600"
+      color: "text-blue-400 dark:text-blue-300"
     },
     {
       label: "Client Satisfaction",
       value: "98%",
       icon: Star,
-      color: "text-yellow-600"
+      color: "text-yellow-400 dark:text-yellow-300"
     },
     {
       label: "Happy Clients",
       value: "80+",
       icon: Users,
-      color: "text-green-600"
+      color: "text-green-400 dark:text-green-300"
     },
     {
       label: "Years Experience",
       value: "3+",
       icon: Clock,
-      color: "text-purple-600"
+      color: "text-purple-400 dark:text-purple-300"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16">
       <motion.div 
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -152,12 +152,12 @@ const GraphicsDesignPage = () => {
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.5 }}
           >
-            <Palette className="mx-auto w-20 h-20 text-blue-600 mb-6" />
+            <Palette className="mx-auto w-20 h-20 text-blue-600 dark:text-blue-300 mb-6" />
           </motion.div>
-          <h1 className="text-5xl font-bold mb-4 text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
+          <h1 className="text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-gray-900 dark:to-gray-800 bg-clip-text">
             Graphics Design Services
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Transform your visual communication with our creative design solutions.
           </p>
         </div>
@@ -187,11 +187,11 @@ const GraphicsDesignPage = () => {
               <h3 className={`text-2xl font-bold mb-4 ${service.color}`}>
                 {service.title}
               </h3>
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-700 dark:text-gray-400 mb-6">
                 {service.description}
               </p>
               <div className="text-left pl-8">
-                <ul className="list-disc space-y-2 text-gray-600">
+                <ul className="list-disc space-y-2 text-gray-600 dark:text-gray-400">
                   {service.keyPoints.map((point, i) => (
                     <li key={i} className="text-sm">{point}</li>
                   ))}
@@ -202,29 +202,29 @@ const GraphicsDesignPage = () => {
         </div>
 
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">
             Our Portfolio
           </h2>
         </div>
 
         {projectSections.map((section, sectionIndex) => (
-        <div key={sectionIndex} className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            {section.title}
-          </h2>
-          <div className={styles.sliderContainer}>
-            <div className={`${styles.sliderWrapper} ${section.direction === 'right' ? styles.right : ''}`}>
-              {section.images.concat(section.images).map((image, imageIndex) => (
-                <div
-                  key={imageIndex}
-                  className={`${styles.sliderItem} ${styles[section.type]}`}
-                >
-                  <img
-                    src={image}
-                    alt={`${section.title} project ${imageIndex + 1}`}
-                  />
-                </div>
-              ))}
+          <div key={sectionIndex} className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
+              {section.title}
+            </h2>
+            <div className={styles.sliderContainer}>
+              <div className={`${styles.sliderWrapper} ${section.direction === 'right' ? styles.right : ''}`}>
+                {section.images.concat(section.images).map((image, imageIndex) => (
+                  <div
+                    key={imageIndex}
+                    className={`${styles.sliderItem} ${styles[section.type]}`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${section.title} project ${imageIndex + 1}`}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -235,7 +235,7 @@ const GraphicsDesignPage = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl font-bold text-center mb-12"
+            className="text-3xl font-bold text-center mb-12 dark:text-gray-100"
           >
             Our Impact
           </motion.h2>
@@ -253,16 +253,16 @@ const GraphicsDesignPage = () => {
                   scale: 1.05,
                   boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
                 }}
-                className="bg-white p-8 rounded-xl shadow-lg text-center group"
+                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg text-center group"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <stat.icon className={`w-12 h-12 mx-auto mb-4 ${stat.color} group-hover:scale-110 transition-transform`} />
+                  <stat.icon className={`w-16 h-16 mx-auto mb-4 ${stat.color} group-hover:scale-110 transition-transform`} />
                 </motion.div>
-                <h3 className="text-4xl font-bold text-gray-800 mb-2">{stat.value}</h3>
-                <p className="text-gray-600">{stat.label}</p>
+                <h3 className={`text-4xl font-bold ${stat.color}`}>{stat.value}</h3>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">{stat.label}</p>
               </motion.div>
             ))}
           </div>

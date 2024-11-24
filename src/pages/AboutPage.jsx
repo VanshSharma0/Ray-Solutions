@@ -15,7 +15,6 @@ import {
   ExternalLink,
   Camera,
   Copy 
-  // Magic
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -32,8 +31,8 @@ const AboutPage = () => {
       company: "Independent Consulting",
       duration: "Jan 2023 - Present",
       location: "Remote",
-      color: "text-blue-600",
-      borderColor: "border-blue-600",
+      color: "text-blue-400",
+      borderColor: "border-blue-400",
       achievements: [
         "Delivered premium photo editing and graphic design services to 50+ high-profile clients",
         "Implemented targeted social media strategies, achieving a 40% increase in client engagement",
@@ -46,8 +45,8 @@ const AboutPage = () => {
       company: "PALIO Marketing Agency",
       duration: "Jun 2021 - May 2023",
       location: "New York, NY",
-      color: "text-purple-600",
-      borderColor: "border-purple-600",
+      color: "text-purple-400",
+      borderColor: "border-purple-400",
       achievements: [
         "Orchestrated multi-channel social media campaigns with measurable impact",
         "Collaborated on graphic design projects, producing visually compelling content",
@@ -60,8 +59,8 @@ const AboutPage = () => {
       company: "Creative Media Solutions",
       duration: "Jan 2020 - May 2021",
       location: "San Francisco, CA",
-      color: "text-green-600",
-      borderColor: "border-green-600",
+      color: "text-green-400",
+      borderColor: "border-green-400",
       achievements: [
         "Produced high-engagement social media content for tech startup clients",
         "Developed visual storytelling strategies across multiple digital platforms",
@@ -74,8 +73,8 @@ const AboutPage = () => {
       company: "Urban Design Studio",
       duration: "Jul 2019 - Dec 2019",
       location: "Chicago, IL",
-      color: "text-indigo-600",
-      borderColor: "border-indigo-600",
+      color: "text-indigo-400",
+      borderColor: "border-indigo-400",
       achievements: [
         "Assisted senior designers in creating comprehensive branding packages",
         "Learned and applied advanced Adobe Creative Suite techniques",
@@ -96,8 +95,8 @@ const AboutPage = () => {
         "Artistic Color Grading",
         "Background Transformation"
       ],
-      color: "text-blue-600",
-      bgColor: "bg-blue-50"
+      color: "text-blue-400",
+      bgColor: "bg-gray-800"
     },
     {
       icon: Palette,
@@ -106,11 +105,10 @@ const AboutPage = () => {
         "UI/UX Design",
         "Logo Design",
         "Banner Design",
-        // "Typography",
         "Product catalogs"
       ],
-      color: "text-purple-600",
-      bgColor: "bg-purple-50"
+      color: "text-purple-400",
+      bgColor: "bg-gray-800"
     },
     {
       icon: MessageCircle,
@@ -121,25 +119,25 @@ const AboutPage = () => {
         "Team Leadership",
         "Communication"
       ],
-      color: "text-green-600",
-      bgColor: "bg-green-50"
+      color: "text-green-400",
+      bgColor: "bg-gray-800"
     }
   ];
 
   const stats = [
-    { label: "Projects Completed", value: "150+", color: "text-blue-600" },
-    { label: "Happy Clients", value: "50+", color: "text-purple-600" },
-    { label: "Years Experience", value: "4+", color: "text-green-600" },
-    { label: "Awards Won", value: "10+", color: "text-indigo-600" }
+    { label: "Projects Completed", value: "150+", color: "text-blue-400" },
+    { label: "Happy Clients", value: "50+", color: "text-purple-400" },
+    { label: "Years Experience", value: "4+", color: "text-green-400" },
+    { label: "Awards Won", value: "10+", color: "text-indigo-400" }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-900 text-gray-200">
       {/* Hero Section */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20"
+        className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-20"
       >
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -147,7 +145,7 @@ const AboutPage = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="w-32 h-32 rounded-full bg-white p-2 mx-auto mb-8"
+              className="w-32 h-32 rounded-full bg-gray-800 p-2 mx-auto mb-8"
             >
               <img
                 src="/self.png"
@@ -170,21 +168,6 @@ const AboutPage = () => {
             >
               Digital Creative Professional
             </motion.p>
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="flex justify-center space-x-4"
-            >
-              {/* <button className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold flex items-center hover:bg-blue-50 transition-colors">
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
-              </button>
-              <button className="bg-transparent border-2 border-white px-6 py-2 rounded-full font-semibold flex items-center hover:bg-white/10 transition-colors">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Portfolio
-              </button> */}
-            </motion.div>
           </div>
         </div>
       </motion.div>
@@ -201,10 +184,10 @@ const AboutPage = () => {
             <motion.div
               key={index}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-lg shadow-lg p-6 text-center"
+              className="bg-gray-800 rounded-lg shadow-lg p-6 text-center"
             >
               <h3 className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</h3>
-              <p className="text-gray-600">{stat.label}</p>
+              <p className="text-gray-400">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -219,13 +202,13 @@ const AboutPage = () => {
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <p className="text-gray-600 leading-relaxed mb-6">
+          <div className="bg-gray-800 rounded-xl shadow-lg p-8">
+            <p className="text-gray-400 leading-relaxed mb-6">
               I'm a creative professional with a passion for digital design and visual storytelling. 
               With over 4 years of experience in the creative industry, I've helped businesses and 
               individuals bring their visions to life through compelling design and strategic thinking.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               My approach combines technical expertise with artistic vision to deliver results that 
               not only look great but also achieve business objectives. I believe in continuous learning 
               and staying updated with the latest design trends and technologies.
@@ -252,7 +235,7 @@ const AboutPage = () => {
                 </h3>
                 <ul className="space-y-2">
                   {skill.items.map((item, i) => (
-                    <li key={i} className="text-gray-600">{item}</li>
+                    <li key={i} className="text-gray-400">{item}</li>
                   ))}
                 </ul>
               </motion.div>
@@ -263,60 +246,36 @@ const AboutPage = () => {
         {/* Experience Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-8">Professional Experience</h2>
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 gap-8">
             {experiences.map((experience, index) => (
-              <motion.div
+              <motion.div 
                 key={index}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-gray-800 rounded-xl shadow-lg p-8"
               >
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="md:col-span-1">
-                    <h3 className={`text-xl font-bold ${experience.color}`}>
-                      {experience.title}
-                    </h3>
-                    <div className="mt-2 space-y-2">
-                      <div className="flex items-center text-gray-600">
-                        <Building className="w-4 h-4 mr-2" />
-                        <span>{experience.company}</span>
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        <span>{experience.duration}</span>
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <MapPin className="w-4 h-4 mr-2" />
-                        <span>{experience.location}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="md:col-span-2">
-                    <div className={`border-l-4 ${experience.borderColor} pl-6`}>
-                      <ul className="space-y-3">
-                        {experience.achievements.map((achievement, i) => (
-                          <motion.li
-                            key={i}
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: i * 0.1 }}
-                            className="text-gray-600"
-                          >
-                            {achievement}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                <h3 className={`text-2xl font-bold ${experience.color} mb-2`}>
+                  {experience.title}
+                </h3>
+                <p className="text-gray-400 mb-4">{experience.company}</p>
+                <div className="flex items-center text-gray-500 space-x-4 mb-6">
+                  <Calendar className="w-5 h-5" />
+                  <span>{experience.duration}</span>
+                  <MapPin className="w-5 h-5" />
+                  <span>{experience.location}</span>
                 </div>
+                <ul className="list-disc pl-5 space-y-2">
+                  {experience.achievements.map((achievement, i) => (
+                    <li key={i} className="text-gray-400">{achievement}</li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
         </section>
-
-        {/* Contact Section */}
-        <motion.section
+      </div>
+      <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -387,7 +346,6 @@ const AboutPage = () => {
     </div>
 
         </motion.section>
-      </div>
     </div>
   );
 };

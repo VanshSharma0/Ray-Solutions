@@ -1,8 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera, Scissors, Image, Wand2, Brush, Sparkles } from 'lucide-react';
+import { Camera, Scissors, Image, Wand2, Brush, Sparkles, Users, Star, Clock, Award } from 'lucide-react';
 
 const PhotoEditingPage = () => {
+
+  const impactStats = [
+    {
+      icon: Users,
+      value: "100+",
+      label: "Happy Clients",
+      description: "Satisfied customers worldwide",
+      color: "text-blue-400",
+      bgColor: "bg-blue-950/30"
+    },
+    {
+      icon: Star,
+      value: "400+",
+      label: "Photos Edited",
+      description: "Professional edits delivered",
+      color: "text-purple-400",
+      bgColor: "bg-purple-950/30"
+    },
+    {
+      icon: Clock,
+      value: "24h",
+      label: "Average Turnaround",
+      description: "Quick and efficient delivery",
+      color: "text-green-400",
+      bgColor: "bg-green-950/30"
+    },
+    {
+      icon: Award,
+      value: "99%",
+      label: "Satisfaction Rate",
+      description: "Excellence in every edit",
+      color: "text-pink-400",
+      bgColor: "bg-pink-950/30"
+    }
+  ];
+
+
   const services = [
     {
       icon: Scissors,
@@ -13,8 +50,8 @@ const PhotoEditingPage = () => {
         "Wedding & event photo enhancement",
         "Model portfolio refinement"
       ],
-      color: "text-blue-600",
-      bgColor: "bg-blue-50"
+      color: "text-blue-400",
+      bgColor: "bg-blue-950/30"
     },
     {
       icon: Image,
@@ -25,8 +62,8 @@ const PhotoEditingPage = () => {
         "Historical document preservation",
         "Antique photograph revival"
       ],
-      color: "text-purple-600",
-      bgColor: "bg-purple-50"
+      color: "text-purple-400",
+      bgColor: "bg-purple-950/30"
     },
     {
       icon: Sparkles,
@@ -37,8 +74,8 @@ const PhotoEditingPage = () => {
         "Marketing visual composition",
         "Creative conceptual imagery"
       ],
-      color: "text-green-600",
-      bgColor: "bg-green-50"
+      color: "text-green-400",
+      bgColor: "bg-green-950/30"
     },
     {
       icon: Brush,
@@ -49,8 +86,8 @@ const PhotoEditingPage = () => {
         "Brand visual consistency",
         "Mood-driven photo transformation"
       ],
-      color: "text-indigo-600",
-      bgColor: "bg-indigo-50"
+      color: "text-indigo-400",
+      bgColor: "bg-indigo-950/30"
     },
     {
       icon: Wand2,
@@ -61,8 +98,8 @@ const PhotoEditingPage = () => {
         "Virtual set design",
         "Creative composition editing"
       ],
-      color: "text-pink-600",
-      bgColor: "bg-pink-50"
+      color: "text-pink-400",
+      bgColor: "bg-pink-950/30"
     }
   ];
 
@@ -95,7 +132,6 @@ const PhotoEditingPage = () => {
     {
       title: "Creative Object Manipulation",
       images: [
-        // "creative/c1.jpg",
         "creative/c2.jpg",
         "creative/c3.PNG",
         "creative/c4.PNG",
@@ -135,24 +171,24 @@ const PhotoEditingPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 pt-24 pb-20 px-6">
       <motion.div 
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="container mx-auto px-6"
+        className="container mx-auto"
       >
         <div className="text-center mb-16">
           <motion.div
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.5 }}
           >
-            <Camera className="mx-auto w-20 h-20 text-blue-600 mb-6" />
+            <Camera className="mx-auto w-20 h-20 text-blue-400 mb-6" />
           </motion.div>
-          <h1 className="text-5xl font-bold mb-4 text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
+          <h1 className="text-5xl font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
             Professional Photo Editing Services
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Transform your visual content with expert editing that brings your creative vision to life.
           </p>
         </div>
@@ -169,9 +205,9 @@ const PhotoEditingPage = () => {
               }}
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 10px 15px rgba(0,0,0,0.1)"
+                boxShadow: "0 10px 15px rgba(0,0,0,0.3)"
               }}
-              className={`${service.bgColor} rounded-xl shadow-lg p-8 text-center transition-all group`}
+              className={`${service.bgColor} rounded-xl shadow-lg p-8 text-center transition-all group border border-gray-800/50 backdrop-blur-sm`}
             >
               <motion.div
                 whileHover={{ rotate: 15 }}
@@ -182,11 +218,11 @@ const PhotoEditingPage = () => {
               <h3 className={`text-2xl font-bold mb-4 ${service.color}`}>
                 {service.title}
               </h3>
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-300 mb-6">
                 {service.description}
               </p>
               <div className="text-left pl-8">
-                <ul className="list-disc space-y-2 text-gray-600">
+                <ul className="list-disc space-y-2 text-gray-400">
                   {service.keyPoints.map((point, i) => (
                     <li key={i} className="text-sm">{point}</li>
                   ))}
@@ -197,34 +233,115 @@ const PhotoEditingPage = () => {
         </div>
 
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl font-bold text-gray-100 mb-6">
             My Recent Projects
           </h2>
         </div>
 
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto">
           {projectSections.map((section, sectionIndex) => (
             <div key={sectionIndex} className="mb-16">
-              <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+              <h2 className="text-3xl font-bold text-gray-100 mb-8 text-center">
                 {section.title}
               </h2>
               <div className="slider-container">
-  <div
-    className={`slider-wrapper ${section.direction === "left" ? "left" : "right"}`}
-  >
-    {section.images.concat(section.images).map((image, imageIndex) => (
-      <img
-        key={imageIndex}
-        src={image}
-        alt={`${section.title} project ${imageIndex + 1}`}
-        className="slider-item"
-      />
-    ))}
-  </div>
-</div>
+                <div
+                  className={`slider-wrapper ${section.direction === "left" ? "left" : "right"}`}
+                >
+                  {section.images.concat(section.images).map((image, imageIndex) => (
+                    <img
+                      key={imageIndex}
+                      src={image}
+                      alt={`${section.title} project ${imageIndex + 1}`}
+                      className="slider-item"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mt-24 mb-16"
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text mb-4">
+              Our Impact
+            </h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Transforming visions into reality, one photo at a time. Here's how we've made a difference.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {impactStats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: index * 0.1
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+                className={`${stat.bgColor} rounded-xl p-6 text-center border border-gray-800 shadow-lg`}
+              >
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                  className="mb-4"
+                >
+                  <stat.icon className={`mx-auto w-12 h-12 ${stat.color}`} />
+                </motion.div>
+                <h3 className={`text-3xl font-bold ${stat.color} mb-2`}>
+                  {stat.value}
+                </h3>
+                <h4 className="text-xl font-semibold text-gray-200 mb-2">
+                  {stat.label}
+                </h4>
+                <p className="text-gray-400 text-sm">
+                  {stat.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Testimonial */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-16 text-center"
+          >
+            <blockquote className="max-w-3xl mx-auto p-8 rounded-xl bg-gray-900/50 border border-gray-800">
+              <p className="text-xl text-gray-300 italic mb-4">
+                "The attention to detail and professional service has consistently exceeded our expectations. Their team has become an invaluable partner for all our photo editing needs."
+              </p>
+              <footer className="text-gray-400">
+                <p className="font-semibold">Sarah Chen</p>
+                <p className="text-sm">Creative Director, Visual Arts Studio</p>
+              </footer>
+            </blockquote>
+          </motion.div>
+
+          {/* Call to Action */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-16 text-center"
+          >
+            <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+              Start Your Project Today
+            </button>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </div>
   );
