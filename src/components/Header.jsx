@@ -16,8 +16,8 @@ const Header = () => {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/photo-editing', label: 'Photo Editing' },
-    { href: '/graphics-design', label: 'Graphics Design' },
-    { href: '/social-media', label: 'Social Media' },
+    { href: '/graphics-design', label: 'Graphic Design' },
+    { href: '/social-media', label: 'Social Media Management' },
     { href: '/about', label: 'About' }
   ];
 
