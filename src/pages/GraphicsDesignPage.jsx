@@ -1,6 +1,7 @@
 import React from 'react';
 import { Triangle, Layout, Award, Layers, Palette } from 'lucide-react';
 import { motion } from 'framer-motion';
+import styles from './GraphicsDesign.module.css';
 
 const GraphicsDesignPage = () => {
   const services = [
@@ -56,35 +57,58 @@ const GraphicsDesignPage = () => {
 
   const projectSections = [
     {
-      title: "Logo Design Portfolio",
+      title: "Logo Design",
       images: [
         "/logo/l1.jpg",
+        "/logo/l2.jpg",
+        "/logo/l8.png",
+        "/logo/l7.png",
+        "/logo/l3.jpg",
+        "/logo/l4.jpg",
+        "/logo/l5.jpg",
+        "/logo/l6.png",
       ],
-      direction: "left"
+      direction: "left",
+      type: "logo"
     },
     {
       title: "Banner Showcase",
       images: [
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400"
+        "/banner/b1.jpg",
+        "/banner/b2.png",
+        "/banner/b3.PNG",
+        "/banner/b4.png",
+        "/banner/b5.png",
+        "/banner/b6.jpg",
+        "/banner/b7.png",
       ],
-      direction: "right"
+      direction: "right",
+      type: "banner"
     },
     {
       title: "Poster Gallery",
       images: [
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400"
+        "/poster/p1.png",
+        "/poster/p2.png",
+        "/poster/p3.png",
+        "/poster/p4.png",
+        "/poster/p5.png",
+        "/poster/p6.png",
       ],
-      direction: "left"
+      direction: "left",
+      type: "poster"
+    },
+    {
+      title: "Business Card Design",
+      images: [
+        "/card/c1.png",
+        "/card/c2.png",
+        "/card/c3.png",
+        "/card/c4.png",
+        "/card/c5.png",
+        "/card/c6.png",
+      ],
+      type: "card"
     }
   ];
 
@@ -156,58 +180,24 @@ const GraphicsDesignPage = () => {
           </h2>
         </div>
 
-        <style>{`
-          .slider-container {
-            width: 100%;
-            overflow: hidden;
-            margin: 2rem 0;
-          }
-          
-          .slider-wrapper {
-            display: flex;
-            animation: slide 30s linear infinite;
-          }
-          
-          .slider-wrapper.left {
-            animation-direction: normal;
-          }
-          
-          .slider-wrapper.right {
-            animation-direction: reverse;
-          }
-          
-          .slider-item {
-            flex: 0 0 300px;
-            margin: 0 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          }
-          
-          @keyframes slide {
-            from {
-              transform: translateX(0);
-            }
-            to {
-              transform: translateX(-50%);
-            }
-          }
-        `}</style>
-
         {projectSections.map((section, sectionIndex) => (
-          <div key={sectionIndex} className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-              {section.title}
-            </h2>
-            <div className="slider-container">
-              <div className={`slider-wrapper ${section.direction}`}>
-                {section.images.concat(section.images).map((image, imageIndex) => (
+        <div key={sectionIndex} className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            {section.title}
+          </h2>
+          <div className={styles.sliderContainer}>
+            <div className={`${styles.sliderWrapper} ${section.direction === 'right' ? styles.right : ''}`}>
+              {section.images.concat(section.images).map((image, imageIndex) => (
+                <div
+                  key={imageIndex}
+                  className={`${styles.sliderItem} ${styles[section.type]}`}
+                >
                   <img
-                    key={imageIndex}
                     src={image}
                     alt={`${section.title} project ${imageIndex + 1}`}
-                    className="slider-item"
                   />
-                ))}
+                </div>
+              ))}
               </div>
             </div>
           </div>

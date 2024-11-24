@@ -1,0 +1,69 @@
+.sliderContainer {
+    width: 100%;
+    overflow: hidden;
+    margin: 2rem 0;
+    position: relative;
+  }
+  
+  .sliderWrapper {
+    display: flex;
+    width: calc(200%);
+    animation: slideLeft 30s linear infinite;
+  }
+  
+  .sliderWrapper.right {
+    animation: slideRight 30s linear infinite;
+  }
+  
+  .sliderItem {
+    flex: 0 0 300px;
+    margin: 0 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .sliderItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Logo specific styles - square */
+  .logo {
+    aspect-ratio: 1 / 1;
+  }
+  
+  /* Banner specific styles - landscape */
+  .banner {
+    aspect-ratio: 16 / 9;
+  }
+  
+  /* Poster specific styles - portrait */
+  .poster {
+    aspect-ratio: 2 / 3;
+  }
+  
+  /* Business card specific styles - landscape */
+  .card {
+    aspect-ratio: 16 / 9;
+  }
+  
+  @keyframes slideLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes slideRight {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
