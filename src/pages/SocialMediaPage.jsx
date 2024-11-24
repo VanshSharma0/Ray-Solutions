@@ -178,13 +178,13 @@ const SocialMediaPage = () => {
             ))}
           </div>
 
-          <div className="text-center mb-8">
+          {/* <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-100 mb-6">
               Our Portfolio
             </h2>
-          </div>
+          </div> */}
 
-          {projectSections.map((section, sectionIndex) => (
+          {/* {projectSections.map((section, sectionIndex) => (
             <div key={sectionIndex} className="mb-16">
               <h2 className="text-3xl font-bold text-gray-100 mb-8 text-center">
                 {section.title}
@@ -205,7 +205,7 @@ const SocialMediaPage = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
 
           {/* Stats Section */}
           <div className="mt-20">

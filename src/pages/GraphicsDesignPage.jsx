@@ -154,7 +154,7 @@ const GraphicsDesignPage = () => {
           >
             <Palette className="mx-auto w-20 h-20 text-blue-600 dark:text-blue-300 mb-6" />
           </motion.div>
-          <h1 className="text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-gray-900 dark:to-gray-800 bg-clip-text">
+          <h1 className="text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-gray-900 dark:to-gray-800 bg-clip-text text-purple-800">
             Graphics Design Services
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">

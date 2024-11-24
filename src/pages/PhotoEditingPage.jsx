@@ -185,7 +185,7 @@ const PhotoEditingPage = () => {
           >
             <Camera className="mx-auto w-20 h-20 text-blue-400 mb-6" />
           </motion.div>
-          <h1 className="text-5xl font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
+          <h1 className="text-5xl font-bold mb-4 text-purple-400 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
             Professional Photo Editing Services
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
