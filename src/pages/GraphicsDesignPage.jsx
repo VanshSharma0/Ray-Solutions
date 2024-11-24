@@ -58,12 +58,7 @@ const GraphicsDesignPage = () => {
     {
       title: "Logo Design Portfolio",
       images: [
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400"
+        "/logo/l1.jpg",
       ],
       direction: "left"
     },
