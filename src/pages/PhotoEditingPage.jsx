@@ -70,65 +70,65 @@ const PhotoEditingPage = () => {
     {
       title: "Professional Photo Retouching",
       images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400"
+        "skinretouch/s1.jpeg",
+        "skinretouch/s2.jpeg",
+        "skinretouch/s3.jpg",
+        "skinretouch/s4.jpeg",
+        "skinretouch/s5.jpeg",
+        "skinretouch/s6.png",
+        "skinretouch/s7.jpeg",
       ],
       direction: "left"
     },
     {
       title: "Advanced Image Restoration",
       images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400"
+        "skinrestoration/s1.jpg",
+        "skinrestoration/s2.jpg",
+        "skinrestoration/s3.jpg",
+        "skinrestoration/s4.jpg",
+        "skinrestoration/s5.jpg",
+        "skinrestoration/s6.jpg",
       ],
       direction: "right"
     },
     {
       title: "Creative Object Manipulation",
       images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400"
+        // "creative/c1.jpg",
+        "creative/c2.jpg",
+        "creative/c3.PNG",
+        "creative/c4.PNG",
+        "creative/c5.jpg",
+        "creative/c6.jpg",
+        "creative/c7.jpg",
       ],
       direction: "left"
     },
     {
       title: "Artistic Color Grading",
       images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400"
+        "color/c1.jpg",
+        "color/c2.jpg",
+        "color/c2.webp",
+        "color/c3.jpg",
+        "color/c4.jpg",
+        "color/c5.jpg",
+        "color/c6.jpg",
+        "color/c7.jpg",
       ],
       direction: "right"
     },
     {
       title: "Background Transformation",
       images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400"
+        "bg/b1.webp",
+        "bg/b2.jpg",
+        "bg/b3.jpg",
+        "bg/b4.jpg",
+        "bg/b5.jpg",
+        "bg/b6.jpg",
+        "bg/b7.jpg",
       ],
       direction: "left"
     }
