@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
@@ -14,12 +15,13 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/photo-editing', label: 'Photo Editing' },
-    { href: '/graphics-design', label: 'Graphic Design' },
-    { href: '/social-media', label: 'Social Media Management' },
-    { href: '/about', label: 'About' }
+    { to: '/', label: 'Home' },
+    { to: '/photo-editing', label: 'Photo Editing' },
+    { to: '/graphics-design', label: 'Graphic Design' },
+    { to: '/social-media', label: 'Social Media Management' },
+    { to: '/about', label: 'About' }
   ];
+
 
   return (
     <>
@@ -33,32 +35,33 @@ const Header = () => {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
-              <a 
-                href="/logo.png" 
+              <Link
+                to="/"
                 className="font-bold text-lg text-white hover:text-blue-400 transition-colors"
               >
-                <img src="/logo.png" alt="" className='h-16 mt-8' />
-              </a>
+                <img src="/logo.png" alt="Logo" className="h-16 mt-8" />
+              </Link>
 
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center gap-1">
                 {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="px-4 py-2 rounded-lg text-sm font-medium
-                      text-gray-300
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className={`
+                      px-4 py-2 rounded-lg text-sm font-medium
                       transition-all duration-200
                       hover:text-white hover:bg-gray-800
                       focus:outline-none focus:ring-2 focus:ring-blue-500
                       relative group
-                      after:absolute after:bottom-0 after:left-0 after:h-0.5 
+                      after:absolute after:bottom-0 after:left-0 after:h-0.5
                       after:w-0 after:bg-blue-500 after:transition-all after:duration-300
                       hover:after:w-full
-                    "
+                      ${location.pathname === item.to ? 'text-white bg-gray-800' : 'text-gray-300'}
+                    `}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
 
@@ -85,16 +88,20 @@ const Header = () => {
           >
             <nav className="px-4 py-2">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="block px-4 py-3 text-gray-300 
-                    hover:text-white hover:bg-gray-800 
-                    rounded-lg transition-all duration-200"
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={`
+                    block px-4 py-3 rounded-lg
+                    transition-all duration-200
+                    ${location.pathname === item.to 
+                      ? 'text-white bg-gray-800' 
+                      : 'text-gray-300 hover:text-white hover:bg-gray-800'}
+                  `}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
