@@ -2,44 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Camera, Palette, Share2, Linkedin, Github, Mail, Phone, MapPin, Award, Briefcase, Globe, Copy, Check, Moon, Sun } from "lucide-react";
 import { motion } from 'framer-motion';
-
-// Dark Mode Toggle Component
-const DarkModeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
-    }
-    setIsDark(!isDark);
-  };
-
-  // return (
-  //   <motion.button
-  //     whileHover={{ scale: 1.1 }}
-  //     whileTap={{ scale: 0.9 }}
-  //     onClick={toggleDarkMode}
-  //     className="fixed top-6 right-6 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg z-50"
-  //   >
-  //     {isDark ? (
-  //       <Sun className="w-6 h-6 text-yellow-500" />
-  //     ) : (
-  //       <Moon className="w-6 h-6 text-gray-700" />
-  //     )}
-  //   </motion.button>
-  // );
-};
+import { Link, useNavigate  } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 
 const ProfileImage = () => (
   <motion.div 
@@ -66,47 +30,52 @@ const ProfileImage = () => (
   </motion.div>
 );
 
-const ServiceCard = ({ icon: Icon, title, color, link, services }) => (
-  <motion.div 
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="bg-white dark:bg-gray-800 shadow-xl rounded-xl p-6 transform transition hover:scale-105 hover:shadow-2xl group backdrop-blur-lg bg-opacity-90 dark:bg-opacity-90"
-  >
+const ServiceCard = ({ icon: Icon, title, color, link, services }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    navigate(link);
+  };
+
+  return (
     <motion.div 
-      whileHover={{ rotate: 360 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`flex items-center mb-4 ${color}`}
+      className="bg-white dark:bg-gray-800 shadow-xl rounded-xl p-6 transform transition hover:scale-105 hover:shadow-2xl group backdrop-blur-lg bg-opacity-90 dark:bg-opacity-90"
     >
-      <div className={`p-3 rounded-full ${color} bg-opacity-20 mr-4`}>
-        <Icon className="w-8 h-8" />
+      <div className={`flex items-center mb-4 ${color}`}>
+        <div className={`p-3 rounded-full ${color} bg-opacity-20 mr-4`}>
+          <Icon className="w-8 h-8" />
+        </div>
+        <h3 className="text-xl font-bold dark:text-white">{title}</h3>
       </div>
-      <h3 className="text-xl font-bold dark:text-white">{title}</h3>
+      <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+        {services.map((service, index) => (
+          <li 
+            key={index} 
+            className="flex items-center"
+          >
+            <span className="mr-2 text-green-500">✓</span>
+            {service}
+          </li>
+        ))}
+      </ul>
+      <Link 
+        to={link}
+        onClick={handleClick}
+        className="mt-4 block text-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold"
+      >
+        Learn More
+      </Link>
     </motion.div>
-    <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-      {services.map((service, index) => (
-        <motion.li 
-          key={index} 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: index * 0.1 }}
-          className="flex items-center"
-        >
-          <span className="mr-2 text-green-500">✓</span>
-          {service}
-        </motion.li>
-      ))}
-    </ul>
-    <motion.a 
-      href={link}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="mt-4 block text-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold"
-    >
-      Learn More
-    </motion.a>
-  </motion.div>
-);
+  );
+};
+
+
+export { ServiceCard, ScrollToTop };
 
 const HeroSection = () => {
   return (
@@ -114,7 +83,7 @@ const HeroSection = () => {
       <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-pattern dark:opacity-5"></div>
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <ProfileImage />
-        <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-pink-500">
+        <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-pink-400">
           Nav's Digital Solutions
         </h1>
         <h2 className="text-2xl text-gray-700 dark:text-gray-300 mb-4 font-medium">
@@ -123,14 +92,14 @@ const HeroSection = () => {
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
           Transforming digital landscapes through innovative photo editing, compelling graphic design, and strategic social media management.
         </p>
-        <div className="flex justify-center space-x-6">
+        {/* <div className="flex justify-center space-x-6">
           <a href="https://www.linkedin.com/in/vansh-sharma0/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
             <Linkedin className="w-8 h-8" />
           </a>
           <a href="https://github.com/VanshSharma0?tab=repositories" target="_blank" rel="noopener noreferrer" className="text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors">
             <Github className="w-8 h-8" />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
@@ -258,56 +227,56 @@ const ResumeSection = () => {
 
   return (
     <section className="py-24 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.h2 
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center mb-16 text-gray-800 dark:text-white"
-        >
-          Professional Journey
-        </motion.h2>
+    <div className="max-w-6xl mx-auto px-6">
+      <motion.h2 
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-bold text-center mb-16 text-gray-800 dark:text-white"
+      >
+        Professional Journey
+      </motion.h2>
 
-        <div className="space-y-10">
-          {experiences.map((exp, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 ${exp.borderColor} hover:shadow-xl transition-shadow`}
-            >
-              <div className="flex items-center mb-4">
-                <Briefcase className={`w-6 h-6 mr-3 ${exp.color}`} />
-                <h3 className={`text-2xl font-semibold ${exp.color}`}>{exp.title}</h3>
-              </div>
-              <div className="flex justify-between items-center mb-4">
-                <p className="text-gray-700 dark:text-gray-300 flex items-center">
-                  <MapPin className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
-                  {exp.company} | {exp.duration}
-                </p>
-                <span className="text-gray-600 dark:text-gray-400 flex items-center">
-                  <Globe className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
-                  {exp.location}
-                </span>
-              </div>
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-3">
-                {exp.achievements.map((achievement, achIndex) => (
-                  <motion.li 
-                    key={achIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: achIndex * 0.1 }}
-                  >
-                    {achievement}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
+      <div className="space-y-10 relative before:absolute before:left-8 before:top-0 before:bottom-0 before:w-0.5 before:bg-gray-900 dark:before:bg-gray-900">
+        {experiences.map((exp, index) => (
+          <motion.div 
+            key={index}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            className={`bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 ${exp.borderColor} hover:shadow-xl transition-shadow ml-12 relative before:absolute before:left-[-2.5rem] before:top-8 before:w-4 before:h-4 before:bg-blue-600 dark:before:bg-blue-400 before:rounded-full`}
+          >
+            <div className="flex items-center mb-4">
+              <Briefcase className={`w-6 h-6 mr-3 ${exp.color}`} />
+              <h3 className={`text-2xl font-semibold ${exp.color}`}>{exp.title}</h3>
+            </div>
+            <div className="flex justify-between items-center mb-4">
+              <p className="text-gray-700 dark:text-gray-300 flex items-center">
+                <MapPin className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
+                {exp.company} | {exp.duration}
+              </p>
+              <span className="text-gray-600 dark:text-gray-400 flex items-center">
+                <Globe className="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" />
+                {exp.location}
+              </span>
+            </div>
+            <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-3">
+              {exp.achievements.map((achievement, achIndex) => (
+                <motion.li 
+                  key={achIndex}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: achIndex * 0.1 }}
+                >
+                  {achievement}
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 
@@ -421,7 +390,8 @@ const Footer = () => {
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-      <DarkModeToggle />
+      <ScrollToTop />
+      {/* <DarkModeToggle /> */}
       <HeroSection />
       <ServicesSection />
       <ResumeSection />

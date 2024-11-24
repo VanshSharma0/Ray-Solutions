@@ -140,36 +140,28 @@ const AboutPage = () => {
         className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-20"
       >
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="w-32 h-32 rounded-full bg-gray-800 p-2 mx-auto mb-8"
-            >
-              <img
-                src="/self.png"
-                alt="Profile"
-                className="w-full h-full rounded-full object-cover"
-              />
-            </motion.div>
-            <motion.h1 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="text-5xl font-bold mb-4"
-            >
-              Vansh Sharma
-            </motion.h1>
-            <motion.p 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl opacity-90 mb-8"
-            >
-              Digital Creative Professional
-            </motion.p>
-          </div>
-        </div>
+    <div className="max-w-4xl mx-auto text-center">
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.2 }}
+        className="w-48 h-48 rounded-full bg-gray-800 p-2 mx-auto mb-8"  // Increased from w-32 h-32
+      >
+        <img
+          src="/self.png"
+          alt="Profile"
+          className="w-full h-full rounded-full object-cover"
+        />
+      </motion.div>
+      <motion.h1
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="text-5xl font-bold mb-4"
+      >
+        Vansh Sharma
+      </motion.h1>
+    </div>
+  </div>
       </motion.div>
 
       {/* Quick Stats */}
@@ -289,60 +281,61 @@ const AboutPage = () => {
           </p>
           <div className="about-page container mx-auto p-8">
       {/* Contact Information Section */}
-      <section className="contact-info mb-12">
-        <h2 className="text-3xl font-semibold text-white mb-6">Contact Information</h2>
+      <section className="contact-info mb-12 bg-gray-800 p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+  <h2 className="text-3xl font-semibold text-white mb-8 text-center">Contact Information</h2>
 
-        {/* Display Email and Phone with Copy to Clipboard */}
-        <div className="flex flex-col gap-6 max-w-2xl mx-auto">
-          {/* Email */}
-          <div className="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow-md">
-            <div className="flex items-center gap-3">
-              <Mail className="text-teal-600 w-5 h-5" />
-              <p className="text-gray-700">Vanished934@gmail.com</p>
-            </div>
-            <button
-              onClick={() => copyToClipboard('Vanished934@gmail.com')}
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
-            >
-              <Copy className="w-4 h-4" />
-              Copy
-            </button>
-          </div>
+  {/* Display Email and Phone with Copy to Clipboard */}
+  <div className="flex flex-col gap-6">
+    {/* Email */}
+    <div className="flex items-center justify-between">
+      <div className="inline-flex items-center gap-3 p-2 rounded-md ">
+        <Mail className="text-teal-600 w-5 h-5" />
+        <p className=" text-white font-medium">Vanished934@gmail.com</p>
+      </div>
+      <button
+        onClick={() => copyToClipboard('Vanished934@gmail.com')}
+        className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
+      >
+        <Copy className="w-4 h-4 " />
+        Copy
+      </button>
+    </div>
 
-          {/* Phone */}
-          <div className="flex items-center justify-between bg-gray-100 p-4 rounded-lg shadow-md">
-            <div className="flex items-center gap-3">
-              <Phone className="text-teal-600 w-5 h-5" />
-              <p className="text-gray-700">+91 9289890909</p>
-            </div>
-            <button
-              onClick={() => copyToClipboard('+91 9289890909')}
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
-            >
-              <Copy className="w-4 h-4" />
-              Copy
-            </button>
-          </div>
-        </div>
+    {/* Phone */}
+    <div className="flex items-center justify-between">
+      <div className="inline-flex items-center gap-3 p-2 rounded-md">
+        <Phone className="text-teal-600 w-5 h-5" />
+        <p className="text-white font-medium">+91 9289890909</p>
+      </div>
+      <button
+        onClick={() => copyToClipboard('+91 9289890909')}
+        className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors"
+      >
+        <Copy className="w-4 h-4" />
+        Copy
+      </button>
+    </div>
+  </div>
 
-        {/* Email & Call Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-6 max-w-2xl mx-auto mt-8">
-          <a 
-            href="mailto:Vanished934@gmail.com" 
-            className="flex items-center justify-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors"
-          >
-            <Mail className="w-4 h-4" />
-            Email Me
-          </a>
-          <a 
-            href="tel:+919289890909" 
-            className="flex items-center justify-center gap-2 bg-transparent border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            Call Me
-          </a>
-        </div>
-      </section>
+  {/* Email & Call Buttons */}
+  <div className="flex flex-col md:flex-row justify-center gap-6 mt-10">
+    <a 
+      href="mailto:Vanished934@gmail.com" 
+      className="flex items-center justify-center gap-3 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors shadow-md hover:shadow-lg"
+    >
+      <Mail className="w-5 h-5" />
+      Email Me
+    </a>
+    <a 
+      href="tel:+919289890909" 
+      className="flex items-center justify-center gap-3 bg-transparent border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors shadow-md hover:shadow-lg"
+    >
+      <Phone className="w-5 h-5" />
+      Call Me
+    </a>
+  </div>
+</section>
+
     </div>
 
         </motion.section>

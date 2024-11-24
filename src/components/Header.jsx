@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Add ScrollToTop effect when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setIsMobileMenuOpen(false); // Close mobile menu on navigation
+  }, [location.pathname]);
+
   const navItems = [
     { to: '/', label: 'Home' },
     { to: '/photo-editing', label: 'Photo Editing' },
@@ -22,6 +29,10 @@ const Header = () => {
     { to: '/about', label: 'About' }
   ];
 
+  const handleNavClick = () => {
+    window.scrollTo(0, 0);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -37,6 +48,7 @@ const Header = () => {
               {/* Logo */}
               <Link
                 to="/"
+                onClick={handleNavClick}
                 className="font-bold text-lg text-white hover:text-blue-400 transition-colors"
               >
                 <img src="/logo.png" alt="Logo" className="h-16 mt-8" />
@@ -48,6 +60,7 @@ const Header = () => {
                   <Link
                     key={item.to}
                     to={item.to}
+                    onClick={handleNavClick}
                     className={`
                       px-4 py-2 rounded-lg text-sm font-medium
                       transition-all duration-200
@@ -98,7 +111,7 @@ const Header = () => {
                       ? 'text-white bg-gray-800' 
                       : 'text-gray-300 hover:text-white hover:bg-gray-800'}
                   `}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={handleNavClick}
                 >
                   {item.label}
                 </Link>
