@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add these styles to your CSS file */
+@keyframes slide-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes slide-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    width: calc(200%); /* For looping two sets of images */
+    animation: slide-left 15s linear infinite;
+  }
+  
+  .slider-wrapper.right {
+    animation: slide-right 15s linear infinite;
+  }
+  
+  .slider-item {
+    flex: 0 0 auto;
+    width: 500px; /* Match the image dimensions */
+    height: 300px;
+    margin-right: 16px; /* Add spacing between items */
+    border-radius: 12px;
+    overflow: hidden;
+    object-fit: cover;
+  }
+  
