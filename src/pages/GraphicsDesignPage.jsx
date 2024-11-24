@@ -1,5 +1,5 @@
 import React from 'react';
-import { Triangle, Layout, Award, Layers, Palette } from 'lucide-react';
+import { Triangle, Layout, Award, Layers, Palette, Users, Star, Brush, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import styles from './GraphicsDesign.module.css';
 
@@ -112,6 +112,33 @@ const GraphicsDesignPage = () => {
     }
   ];
 
+  const impactStats = [
+    {
+      label: "Projects Delivered",
+      value: "100+",
+      icon: Brush,
+      color: "text-blue-600"
+    },
+    {
+      label: "Client Satisfaction",
+      value: "98%",
+      icon: Star,
+      color: "text-yellow-600"
+    },
+    {
+      label: "Happy Clients",
+      value: "80+",
+      icon: Users,
+      color: "text-green-600"
+    },
+    {
+      label: "Years Experience",
+      value: "3+",
+      icon: Clock,
+      color: "text-purple-600"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50 py-16">
       <motion.div 
@@ -127,7 +154,7 @@ const GraphicsDesignPage = () => {
           >
             <Palette className="mx-auto w-20 h-20 text-blue-600 mb-6" />
           </motion.div>
-          <h1 className="text-5xl font-bold mb-4 text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-4 text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
             Graphics Design Services
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -202,6 +229,44 @@ const GraphicsDesignPage = () => {
             </div>
           </div>
         ))}
+
+        {/* Our Impact Section */}
+        <div className="mt-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl font-bold text-center mb-12"
+          >
+            Our Impact
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {impactStats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  delay: index * 0.1,
+                  duration: 0.5
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
+                }}
+                className="bg-white p-8 rounded-xl shadow-lg text-center group"
+              >
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <stat.icon className={`w-12 h-12 mx-auto mb-4 ${stat.color} group-hover:scale-110 transition-transform`} />
+                </motion.div>
+                <h3 className="text-4xl font-bold text-gray-800 mb-2">{stat.value}</h3>
+                <p className="text-gray-600">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </div>
   );
