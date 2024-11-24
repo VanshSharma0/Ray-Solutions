@@ -34,10 +34,10 @@ const Header = () => {
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
               <a 
-                href="/" 
+                href="/logo.png" 
                 className="font-bold text-lg text-white hover:text-blue-400 transition-colors"
               >
-                Logo
+                <img src="/logo.png" alt="" className='h-16 mt-8' />
               </a>
 
               {/* Desktop Navigation */}
