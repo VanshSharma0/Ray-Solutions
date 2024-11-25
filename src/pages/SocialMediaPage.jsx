@@ -190,48 +190,79 @@ const SocialMediaPage = () => {
       ]
     }
   ];
+  const [activeSection, setActiveSection] = useState('casestudies');
+
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+    document.body.style.backgroundColor = '#111827';
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
       <div className="relative pt-24 pb-20 px-6">
         <div className="container mx-auto px-6">
+        <div className="md:hidden mb-6 bg-gray-800 rounded-full p-1 flex justify-between items-center">
+            {[
+              { key: 'casestudies', label: 'Case Studies' },
+              { key: 'campaigns', label: 'Campaigns' },
+              { key: 'performance', label: 'Performance' }
+            ].map((section) => (
+              <button
+                key={section.key}
+                onClick={() => setActiveSection(section.key)}
+                className={`flex-1 px-4 py-2 rounded-full text-sm ${
+                  activeSection === section.key 
+                    ? 'bg-blue-500 text-white' 
+                    : 'bg-transparent text-gray-400'
+                }`}
+              >
+                {section.label}
+              </button>
+            ))}
+          </div>
           {/* Header Section */}
-          <div className="text-center mb-16">
-            <Share2 className="mx-auto w-20 h-20 text-blue-300 mb-6" />
-            <h1 className="text-5xl font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
-              Real Results, Real Growth
+          <div className="text-center mb-12 md:mb-16">
+            <Share2 className="mx-auto w-12 h-12 md:w-20 md:h-20 text-blue-300 mb-4" />
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-blue-500">
+            Social Media Management
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
               Proven social media strategies backed by real case studies and measurable results
             </p>
           </div>
 
+
           {/* Case Studies Carousel */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-100">Featured Case Studies</h2>
-            <div className="flex space-x-4 mb-8 justify-center">
-              {realCaseStudies.map((study, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedCase(index)}
-                  className={`px-4 py-2 rounded-full ${
-                    selectedCase === index 
-                      ? 'bg-blue-500 text-white' 
-                      : 'bg-gray-800 text-gray-400'
-                  }`}
-                >
-                  {study.client}
-                </button>
-              ))}
-            </div>
+          
+          <div className="mb-16 md:mb-20">
+  <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-100">
+    Featured Case Studies
+  </h2>
+  <div className="overflow-x-auto">
+    <div className="flex space-x-2 md:space-x-4 mb-6 justify-center min-w-max">
+      {realCaseStudies.map((study, index) => (
+        <button
+          key={index}
+          onClick={() => setSelectedCase(index)}
+          className={`px-3 py-1 md:px-4 md:py-2 text-sm md:text-base rounded-full transition-colors duration-200 ${
+            selectedCase === index 
+              ? 'bg-blue-500 text-white' 
+              : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+          }`}
+        >
+          {study.client}
+        </button>
+      ))}
+    </div>
+  </div>
             
-            <div className="bg-gray-800 rounded-xl p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-100 mb-2">
-                    {realCaseStudies[selectedCase].client}
-                  </h3>
-                  <div className="text-gray-400 mb-6">
+  <div className="bg-gray-800 rounded-xl p-4 md:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-100 mb-2">
+                      {realCaseStudies[selectedCase].client}
+                    </h3>
+                    <div className="text-sm md:text-base text-gray-400 mb-6">
                     <p className="mb-2">{realCaseStudies[selectedCase].industry}</p>
                     <p className="mb-4">{realCaseStudies[selectedCase].duration}</p>
                     <h4 className="text-gray-200 font-semibold mb-2">Challenge:</h4>
@@ -271,119 +302,119 @@ const SocialMediaPage = () => {
           </div>
 
           {/* Campaign Examples */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-100">Campaign Deep Dives</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {campaignExamples.map((campaign, index) => (
-                <div key={index} className="bg-gray-800 rounded-xl p-8">
-                  <div className="flex items-center mb-6">
-                    {campaign.platform === "Instagram" ? 
-                      <Instagram className="w-8 h-8 text-pink-400 mr-3" /> :
-                      <Linkedin className="w-8 h-8 text-blue-400 mr-3" />
-                    }
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-100">{campaign.title}</h3>
-                      <p className="text-gray-400">{campaign.client}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    {campaign.stats.map((stat, i) => (
-                      <div key={i} className="bg-gray-900 p-4 rounded">
-                        <p className="text-gray-400 text-sm">{stat.label}</p>
-                        <p className="text-gray-100 text-lg font-bold">{stat.value}</p>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="space-y-4">
-                    {campaign.content.map((item, i) => (
-                      <div key={i} className="border-t border-gray-700 py-4">
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <p className="text-gray-300 font-medium">{item.title}</p>
-                            <p className="text-gray-400 text-sm">{item.type}</p>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-gray-300">{item.performance.views} views</p>
-                            <p className="text-green-400">{item.performance.engagement} eng.</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+<div className="mb-16 md:mb-20">
+  <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-100">
+    Campaign Deep Dives
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+    {campaignExamples.map((campaign, index) => (
+      <div key={index} className="bg-gray-800 rounded-xl p-4 md:p-8">
+        <div className="flex items-center mb-4 md:mb-6">
+          {campaign.platform === "Instagram" ? 
+            <Instagram className="w-6 h-6 md:w-8 md:h-8 text-pink-400 mr-3" /> :
+            <Linkedin className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mr-3" />
+          }
+          <div>
+            <h3 className="text-lg md:text-xl font-bold text-gray-100">{campaign.title}</h3>
+            <p className="text-sm md:text-base text-gray-400">{campaign.client}</p>
           </div>
-
-          {/* Monthly Performance Charts */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-100">Monthly Performance Tracking</h2>
-            {monthlyMetrics.map((platform, index) => (
-              <div key={index} className="mb-12 bg-gray-800 p-8 rounded-xl">
-                <div className="flex items-center mb-6">
-                  <platform.icon className="w-8 h-8 text-blue-300 mr-3" />
-                  <h3 className="text-2xl font-bold text-gray-100">{platform.platform} Growth Metrics</h3>
+        </div>
+        
+        <div className="grid grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+          {campaign.stats.map((stat, i) => (
+            <div key={i} className="bg-gray-900 p-3 md:p-4 rounded">
+              <p className="text-xs md:text-sm text-gray-400">{stat.label}</p>
+              <p className="text-base md:text-lg font-bold text-gray-100">{stat.value}</p>
+            </div>
+          ))}
+        </div>
+        
+        <div className="space-y-3 md:space-y-4">
+          {campaign.content.map((item, i) => (
+            <div key={i} className="border-t border-gray-700 py-3 md:py-4">
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="text-sm md:text-base text-gray-300 font-medium">{item.title}</p>
+                  <p className="text-xs md:text-sm text-gray-400">{item.type}</p>
                 </div>
-                <div className="h-80">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={platform.metrics}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                      <XAxis dataKey="month" stroke="#9CA3AF" />
-                      <YAxis stroke="#9CA3AF" />
-                      <Tooltip 
-                        contentStyle={{ backgroundColor: '#1F2937', border: 'none' }}
-                        itemStyle={{ color: '#E5E7EB' }}
-                      />
-                      <Line 
-                        type="monotone" 
-                        dataKey="followers" 
-                        stroke="#60A5FA" 
-                        strokeWidth={2} 
-                        name="Followers"
-                      />
-                      <Line 
-                        type="monotone" 
-                        dataKey="engagement" 
-                        stroke="#C084FC" 
-                        strokeWidth={2} 
-                        name="Engagement"
-                      />
-                      <Line 
-                        type="monotone" 
-                        dataKey="reach" 
-                        stroke="#34D399" 
-                        strokeWidth={2} 
-                        name="Reach"
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-                <div className="grid grid-cols-3 gap-4 mt-6">
-                  <div className="bg-gray-900 p-4 rounded">
-                    <p className="text-blue-300 mb-1">Peak Followers</p>
-                    <p className="text-2xl font-bold text-gray-100">
-                      {Math.max(...platform.metrics.map(m => m.followers)).toLocaleString()}
-                    </p>
-                  </div>
-                  <div className="bg-gray-900 p-4 rounded">
-                    <p className="text-purple-300 mb-1">Best Engagement</p>
-                    <p className="text-2xl font-bold text-gray-100">
-                      {Math.max(...platform.metrics.map(m => m.engagement)).toLocaleString()}
-                    </p>
-                  </div>
-                  <div className="bg-gray-900 p-4 rounded">
-                    <p className="text-green-300 mb-1">Maximum Reach</p>
-                    <p className="text-2xl font-bold text-gray-100">
-                      {Math.max(...platform.metrics.map(m => m.reach)).toLocaleString()}
-                    </p>
-                  </div>
+                <div className="text-right">
+                  <p className="text-xs md:text-sm text-gray-300">{item.performance.views} views</p>
+                  <p className="text-xs md:text-sm text-green-400">{item.performance.engagement} eng.</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
+{/* Monthly Performance Charts */}
+<div className="mb-16 md:mb-20">
+  <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-gray-100">
+    Monthly Performance Tracking
+  </h2>
+  {monthlyMetrics.map((platform, index) => (
+    <div key={index} className="mb-8 md:mb-12 bg-gray-800 p-4 md:p-8 rounded-xl">
+      <div className="flex items-center mb-4 md:mb-6">
+        <platform.icon className="w-6 h-6 md:w-8 md:h-8 text-blue-300 mr-3" />
+        <h3 className="text-xl md:text-2xl font-bold text-gray-100">
+          {platform.platform} Growth Metrics
+        </h3>
+      </div>
+      <div className="h-48 md:h-80">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={platform.metrics}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+            <XAxis dataKey="month" stroke="#9CA3AF" />
+            <YAxis stroke="#9CA3AF" />
+            <Tooltip 
+              contentStyle={{ backgroundColor: '#1F2937', border: 'none' }}
+              itemStyle={{ color: '#E5E7EB' }}
+            />
+            <Line 
+              type="monotone" 
+              dataKey="followers" 
+              stroke="#60A5FA" 
+              strokeWidth={2} 
+              name="Followers"
+            />
+            <Line 
+              type="monotone" 
+              dataKey="engagement" 
+              stroke="#C084FC" 
+              strokeWidth={2} 
+              name="Engagement"
+            />
+            <Line 
+              type="monotone" 
+              dataKey="reach" 
+              stroke="#34D399" 
+              strokeWidth={2} 
+              name="Reach"
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mt-4 md:mt-6">
+        {[
+          { color: 'text-blue-300', label: 'Peak Followers', 
+            value: Math.max(...platform.metrics.map(m => m.followers)).toLocaleString() },
+          { color: 'text-purple-300', label: 'Best Engagement', 
+            value: Math.max(...platform.metrics.map(m => m.engagement)).toLocaleString() },
+          { color: 'text-green-300', label: 'Maximum Reach', 
+            value: Math.max(...platform.metrics.map(m => m.reach)).toLocaleString() }
+        ].map((metric, i) => (
+          <div key={i} className="bg-gray-900 p-3 md:p-4 rounded">
+            <p className={`${metric.color} text-xs md:text-sm mb-1`}>{metric.label}</p>
+            <p className="text-base md:text-2xl font-bold text-gray-100">{metric.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
           {/* ROI and Business Impact */}
           <div className="mb-20">
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-100">Business Impact</h2>

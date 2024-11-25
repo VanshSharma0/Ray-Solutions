@@ -83,10 +83,10 @@ const HeroSection = () => {
       <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-pattern dark:opacity-5"></div>
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <ProfileImage />
-        <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-pink-400">
+        <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-yellow-500">
           Nav's Digital Solutions
         </h1>
-        <h2 className="text-2xl text-gray-700 dark:text-gray-300 mb-4 font-medium">
+        <h2 className="text-2xl text-gray-700 dark:text-gray-300 mb-4 font-medium  text-yellow-400">
           Digital Solutions Specialist | Creative Professional
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
