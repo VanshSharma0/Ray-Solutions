@@ -150,7 +150,7 @@ const AboutPage = () => {
         <img
           src="/self.png"
           alt="Profile"
-          className="w-full h-full rounded-full object-cover"
+      className="w-full h-full rounded-full object-cover border-4 border-blue-600 dark:border-blue-400 shadow-xl"
         />
       </motion.div>
       <motion.h1

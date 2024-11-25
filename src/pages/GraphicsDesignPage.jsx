@@ -108,6 +108,7 @@ const GraphicsDesignPage = () => {
         "/card/c5.png",
         "/card/c6.png",
       ],
+      direction: "right",
       type: "card"
     }
   ];
