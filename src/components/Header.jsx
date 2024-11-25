@@ -51,7 +51,7 @@ const Header = () => {
                 onClick={handleNavClick}
                 className="font-bold text-lg text-white hover:text-blue-400 transition-colors"
               >
-                <img src="/logo.png" alt="Logo" className="h-16 mt-8" />
+                <img src="/logo4.png" alt="Logo" className="h-16 mt-8" />
               </Link>
 
               {/* Desktop Navigation */}
