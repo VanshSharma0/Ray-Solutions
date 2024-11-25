@@ -38,7 +38,7 @@ const SocialMediaPage = () => {
       ],
       media: [
         "/examples/fitness/reel1.jpg",
-        "/examples/fitness/community.jpg",
+        "/chart/chart1.png",
         "/examples/fitness/results.jpg"
       ]
     },
@@ -234,47 +234,14 @@ const SocialMediaPage = () => {
                   <div className="text-gray-400 mb-6">
                     <p className="mb-2">{realCaseStudies[selectedCase].industry}</p>
                     <p className="mb-4">{realCaseStudies[selectedCase].duration}</p>
-
-                    <div className="bg-gray-900 rounded-lg p-4 mb-6">
-                      <h4 className="text-gray-200 font-semibold mb-2">Challenge:</h4>
-                      <p className="mb-4">{realCaseStudies[selectedCase].challenge}</p>
-                      <img 
-                        src="/api/placeholder/400/200" 
-                        alt="Challenge Visualization" 
-                        className="w-full rounded-lg mb-2"
-                      />
-                      <p className="text-sm text-gray-500">Initial performance metrics and challenges</p>
-                    </div>
-
-                    <h4 className="text-gray-200 font-semibold mb-2">Strategy Implementation:</h4>
-                    <div className="grid gap-4">
-                      {realCaseStudies[selectedCase].strategy.map((item, index) => (
-                        <div key={index} className="bg-gray-900 rounded-lg p-4">
-                          <div className="flex items-start">
-                            <div className="bg-blue-500 rounded-full p-2 mr-3">
-                              <Target className="w-4 h-4 text-white" />
-                            </div>
-                            <div>
-                              <p className="text-gray-300">{item}</p>
-                              <img 
-                                src="/api/placeholder/350/150" 
-                                alt={`Strategy ${index + 1}`} 
-                                className="mt-3 rounded-lg"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* <h4 className="text-gray-200 font-semibold mb-2">Challenge:</h4>
+                    <h4 className="text-gray-200 font-semibold mb-2">Challenge:</h4>
                     <p className="mb-4">{realCaseStudies[selectedCase].challenge}</p>
                     <h4 className="text-gray-200 font-semibold mb-2">Strategy:</h4>
                     <ul className="list-disc pl-4 space-y-2">
                       {realCaseStudies[selectedCase].strategy.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
-                    </ul> */}
+                    </ul>
                   </div>
                 </div>
                 
