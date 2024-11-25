@@ -16,13 +16,14 @@
   }
   
   .sliderItem {
-    flex: 0 0 300px;
+    flex: 0 0 350px; /* Changed from 300px to 350px */
     margin: 0 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     position: relative;
   }
+  
   
   .sliderItem img {
     width: 100%;
@@ -47,7 +48,7 @@
   
   /* Business card specific styles - landscape */
   .card {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 8;
   }
   
   @keyframes slideLeft {
@@ -67,3 +68,4 @@
       transform: translateX(0);
     }
   }
+  

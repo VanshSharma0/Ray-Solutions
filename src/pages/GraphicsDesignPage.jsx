@@ -57,6 +57,21 @@ const GraphicsDesignPage = () => {
 
   const projectSections = [
     {
+      title: "Youtube Thumbnail",
+      images: [
+        "/thumb/t0.png",
+        "/thumb/t1.png",
+        "/thumb/t2.png",
+        "/thumb/t3.png",
+        "/thumb/t4.png",
+        "/thumb/t5.png",
+        "/thumb/t6.png",
+        "/thumb/t7.png",
+      ],
+      direction: "right",
+      type: "banner"
+    },
+    {
       title: "Logo Design",
       images: [
         "/logo/l1.jpg",
